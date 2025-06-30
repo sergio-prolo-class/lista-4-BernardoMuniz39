@@ -2,7 +2,7 @@ package ifsc.poo;
 import edu.princeton.cs.algs4.Draw;
 
 public class Canvas {
-    Draw draw;
+    public Draw draw;
 
     public void desenharTela(){
         this.draw = new Draw();

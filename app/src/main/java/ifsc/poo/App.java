@@ -6,9 +6,7 @@ package ifsc.poo;
 public class App {
 
     public static void main(String[] args) {
-        Canvas canvas = new Canvas();
-
-        canvas.desenharTela();
-        System.out.println("Hello World!");
+        Canvas c = new Canvas();
+        Desenhista d = new Desenhista(c);
     }
 }
