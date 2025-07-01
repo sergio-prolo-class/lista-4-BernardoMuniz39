@@ -5,14 +5,12 @@ public abstract class ObjetoDeDesenho {
     private double x, y;
     private Color cor;
 
-
     public ObjetoDeDesenho(double x, double y, Color cor){
         this.x = Math.floor(x);
         this.y = Math.floor(y);
         this.cor = cor;
        
     }
-
 
     public double getX(){
         return this.x;

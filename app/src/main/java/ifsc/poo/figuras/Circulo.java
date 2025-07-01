@@ -12,19 +12,21 @@ public class Circulo extends ObjetoDeDesenho{
         super(x, y, cor);
         this.raio = raio;
         this.preenchido = preenchido;
+        this.cor = cor;
     } 
     
     @Override
     public void desenhar(Canvas canva){
         if(preenchido){
-            canva.draw.setPenColor();
             canva.draw.setPenColor(Color.BLACK);
             canva.draw.filledCircle(getX(), getY(), raio);
             canva.draw.setPenColor(cor);
             canva.draw.filledCircle(getX(), getY(), raio * 0.95);
         }else{
+            canva.draw.setPenColor(cor);
             canva.draw.circle(getX(), getY(), raio);
         }
+        canva.draw.show();
     }
 }
 
