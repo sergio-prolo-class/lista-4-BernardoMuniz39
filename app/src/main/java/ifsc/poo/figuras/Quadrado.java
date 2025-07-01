@@ -4,7 +4,7 @@ import java.awt.Color;
 import ifsc.poo.Canvas;
 import ifsc.poo.ObjetoDeDesenho;
 
-public class Quadrado extends ObjetoDeDesenho {
+public class Quadrado extends ObjetoDeDesenho{
     private double lado;
 
     public Quadrado(double lado, double x, double y, Color cor, boolean preenchido){
@@ -24,6 +24,16 @@ public class Quadrado extends ObjetoDeDesenho {
             canva.draw.square(getX(), getY(), lado);
         }
         canva.draw.show();
+    }
+
+    @Override
+    public double calcularArea(){
+        return Math.pow(lado, 2);
+    }
+
+    @Override
+    public double calcularPerimetro(){
+        return 4*lado;
     }
 
 }

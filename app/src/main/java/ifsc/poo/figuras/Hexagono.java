@@ -39,5 +39,15 @@ public class Hexagono extends ObjetoDeDesenho{
         }
         canva.draw.show();
     }
+
+    @Override
+    public double calcularArea(){
+        return (3*Math.sqrt(3)*Math.pow(lado, 2))/2.0;
+    }
+
+    @Override
+    public double calcularPerimetro(){
+        return 6*lado;
+    }
     
 }

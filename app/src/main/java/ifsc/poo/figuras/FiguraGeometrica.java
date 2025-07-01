@@ -1,5 +1,6 @@
 package ifsc.poo.figuras;
 
-public class FiguraGeometrica {
-    
+public interface FiguraGeometrica {
+    double calcularArea();
+    double calcularPerimetro();
 }

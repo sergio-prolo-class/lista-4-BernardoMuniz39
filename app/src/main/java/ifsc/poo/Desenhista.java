@@ -6,6 +6,7 @@ import java.util.List;
 
 import edu.princeton.cs.algs4.DrawListener;
 import ifsc.poo.figuras.Circulo;
+import ifsc.poo.figuras.FiguraGeometrica;
 import ifsc.poo.figuras.Hexagono;
 import ifsc.poo.figuras.Pentagono;
 import ifsc.poo.figuras.Quadrado;
@@ -16,12 +17,13 @@ public class Desenhista implements DrawListener{
     private Canvas canva;
     private Color[] colors = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW};
 
-    private int tamanhoinicial = 30, indexCor = 0, tamanhoMin = 10, tamanhoMax = 200;
+    private int tamanhoinicial = 50, indexCor = 0, tamanhoMin = 10, tamanhoMax = 200;
     private String tipoDeFigura;
 
     
     private List<ObjetoDeDesenho> figuras = new LinkedList<>();
-    private boolean preenchido = true;
+    private boolean preenchido = false;
+    private Estatistica e = new Estatistica();
 
     public Desenhista(Canvas c){
         this.canva = c;
@@ -30,12 +32,13 @@ public class Desenhista implements DrawListener{
     }
     
 
-     public void mousePressed(double x, double y) {
+    public void mousePressed(double x, double y) {
         ObjetoDeDesenho figura = null;
+        FiguraGeometrica g = null;
 
         switch(tipoDeFigura){
             case "CIRCULO": 
-                figura = new Circulo(tamanhoinicial, x, y, colors[indexCor], preenchido); //polimosrfismo
+                figura = new Circulo(tamanhoinicial, x, y, colors[indexCor], preenchido); 
                 break;
             case "QUADRADO": 
                 figura = new Quadrado(tamanhoinicial, x, y, colors[indexCor], preenchido);
@@ -48,10 +51,11 @@ public class Desenhista implements DrawListener{
                 break;
         }
 
-            if(figura != null){
-                figuras.add(figura);
-                figura.desenhar(canva);
-            }
+        if(figura != null){
+        
+            figuras.add(figura);
+            figura.desenhar(canva);
+        }
     }
 
     public void keyPressed(int tecla){
@@ -115,6 +119,10 @@ public class Desenhista implements DrawListener{
                 break;
             default:
                 System.out.println("Tecla inválida!");
+            case 80: //P - VER ESTATÍSTICAS
+                System.out.println(e.verEstatisticas(figuras));
+                break;
+                
         }
     }
 

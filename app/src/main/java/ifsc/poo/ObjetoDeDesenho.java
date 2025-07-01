@@ -1,7 +1,9 @@
 package ifsc.poo;
 import java.awt.Color;
 
-public abstract class ObjetoDeDesenho {
+import ifsc.poo.figuras.FiguraGeometrica;
+
+public abstract class ObjetoDeDesenho implements FiguraGeometrica {
     private double x, y;
     private Color cor;
     private boolean preenchido;

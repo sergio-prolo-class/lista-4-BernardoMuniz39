@@ -40,4 +40,15 @@ public class Pentagono extends ObjetoDeDesenho{
         canva.draw.show();
     }
     
+    @Override
+    public double calcularArea(){
+        double apotema = lado/(2*Math.tan(Math.PI/5)); //tg(36°)
+        return (5*lado*apotema)/2;
+    }
+
+    @Override
+    public double calcularPerimetro(){
+        return 5*lado;
+    }
+    
 }
