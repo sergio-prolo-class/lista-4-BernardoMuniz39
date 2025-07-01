@@ -6,6 +6,9 @@ import java.util.List;
 
 import edu.princeton.cs.algs4.DrawListener;
 import ifsc.poo.figuras.Circulo;
+import ifsc.poo.figuras.Hexagono;
+import ifsc.poo.figuras.Pentagono;
+import ifsc.poo.figuras.Quadrado;
 
 
 public class Desenhista implements DrawListener{
@@ -32,42 +35,24 @@ public class Desenhista implements DrawListener{
 
         switch(tipoDeFigura){
             case "CIRCULO": 
-                figura = new Circulo(tamanhoinicial, x, y, colors[indexCor], preenchido);
+                figura = new Circulo(tamanhoinicial, x, y, colors[indexCor], preenchido); //polimosrfismo
                 break;
             case "QUADRADO": 
-                //figura = new Circulo(tamanhoinicial, x, y, colors[indexCor]);
+                figura = new Quadrado(tamanhoinicial, x, y, colors[indexCor], preenchido);
                 break;
             case "HEXÁGONO": 
-                //figura = new Circulo(tamanhoinicial, x, y, colors[indexCor]);
+                figura = new Hexagono(tamanhoinicial, x, y, colors[indexCor], preenchido);
                 break;
             case "PENTÁGONO": 
-                //figura = new Circulo(tamanhoinicial, x, y, colors[indexCor]);
+                figura = new Pentagono(tamanhoinicial, x, y, colors[indexCor], preenchido);
                 break;
-        
-            }
+        }
 
             if(figura != null){
                 figuras.add(figura);
                 figura.desenhar(canva);
             }
     }
-
-    //F1 - CÍRCULO - 0x70
-    //F2 - QUADRADO - 0x71 
-    //F3 - HEXAGONO - 0x72
-    //F4 - PENTAGONO - 0x73
-    //Q - 81
-    //W - 87
-    //C - 67
-
-
-    /*  Seleção de cor: Usando as teclas F5-F8, o usuário pode selecionar qual cor será usada para
-        imprimir a figura. Você deve disponibilizar quatro cores, uma para cada tecla. Escolha cores de alto
-        contraste com o fundo da tela.
-
-        Seleção de modo: Usando a tecla ‘F’, o usuário pode alternar entre impressão vazada ou preenchida.
-        Caso vazada, a cor da borda deve ser a cor selecionada pelo usuário. Caso preenchida, a cor da
-        borda deve ser preta. */
 
     public void keyPressed(int tecla){
         switch(tecla){
@@ -118,16 +103,18 @@ public class Desenhista implements DrawListener{
                     System.out.println("Tamanho: " + tamanhoinicial);
                 }
                 break;
-            case 87:
+            case 87: //W - DIMINUI A FIGURA DE TAMANHO
                 if(tamanhoinicial > tamanhoMin){
                     tamanhoinicial -= 10;
                     System.out.println("Tamanho: " + tamanhoinicial);
                 }
                 break;
-            case 67:
+            case 67: //C - LIMPA A TELA
                 figuras.clear();
                 canva.limparTela();
                 break;
+            default:
+                System.out.println("Tecla inválida!");
         }
     }
 

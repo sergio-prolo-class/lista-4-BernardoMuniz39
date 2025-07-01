@@ -4,31 +4,31 @@ import ifsc.poo.Canvas;
 import ifsc.poo.ObjetoDeDesenho;
 import java.awt.Color;
 
-public class Hexagono extends ObjetoDeDesenho{
+public class Pentagono extends ObjetoDeDesenho{
     private double lado;
 
-    public Hexagono(double lado, double x, double y, Color cor, boolean preenchido){
+    public Pentagono(double lado, double x, double y, Color cor, boolean preenchido){
         super(x, y, cor, preenchido);
         this.lado = lado;
     }
         
     @Override
     public void desenhar(Canvas canva){
-        double[] x = new double[6];
-        double[] y = new double[6];
+        double[] x = new double[5];
+        double[] y = new double[5];
 
-        for(int i = 0; i < 6; i++){
-            x[i] = getX() + lado * Math.cos(2 * Math.PI * i / 6);
-            y[i] = getY() + lado * Math.sin(2 * Math.PI * i / 6);
+        for(int i = 0; i < 5; i++){
+            x[i] = getX() + lado * Math.cos(2 * Math.PI * i / 5);
+            y[i] = getY() + lado * Math.sin(2 * Math.PI * i / 5);
         }
 
         if(this.ehPreenchido()){
             canva.draw.setPenColor(Color.BLACK);
             canva.draw.filledPolygon(x, y);
 
-            for(int i = 0; i < 6; i++){
-                x[i] = getX() + (lado*0.90) * Math.cos(2 * Math.PI * i / 6);
-                y[i] = getY() + (lado*0.90) * Math.sin(2 * Math.PI * i / 6);
+            for(int i = 0; i < 5; i++){
+                x[i] = getX() + (lado*0.90) * Math.cos(2 * Math.PI * i / 5);
+                y[i] = getY() + (lado*0.90) * Math.sin(2 * Math.PI * i / 5);
             }
 
             canva.draw.setPenColor(this.getCor());

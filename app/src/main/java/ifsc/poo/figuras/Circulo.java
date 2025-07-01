@@ -5,25 +5,21 @@ import java.awt.Color;
 
 public class Circulo extends ObjetoDeDesenho{
     private double raio;
-    private boolean preenchido;
-    private Color cor;
-
+    
     public Circulo(double raio, double x, double y, Color cor, boolean preenchido){
-        super(x, y, cor);
+        super(x, y, cor, preenchido);
         this.raio = raio;
-        this.preenchido = preenchido;
-        this.cor = cor;
     } 
     
     @Override
     public void desenhar(Canvas canva){
-        if(preenchido){
+        if(this.ehPreenchido()){
             canva.draw.setPenColor(Color.BLACK);
             canva.draw.filledCircle(getX(), getY(), raio);
-            canva.draw.setPenColor(cor);
-            canva.draw.filledCircle(getX(), getY(), raio * 0.95);
+            canva.draw.setPenColor(this.getCor());
+            canva.draw.filledCircle(getX(), getY(), raio * 0.90);
         }else{
-            canva.draw.setPenColor(cor);
+            canva.draw.setPenColor(this.getCor());
             canva.draw.circle(getX(), getY(), raio);
         }
         canva.draw.show();
