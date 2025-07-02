@@ -18,7 +18,7 @@ public class Quadrado extends ObjetoDeDesenho{
             canva.draw.setPenColor(Color.BLACK);
             canva.draw.filledSquare(getX(), getY(), lado);
             canva.draw.setPenColor(this.getCor());
-            canva.draw.filledSquare(getX(), getY(), lado * 0.90);
+            canva.draw.filledSquare(getX(), getY(), lado * 0.96);
         }else{
             canva.draw.setPenColor(this.getCor());
             canva.draw.square(getX(), getY(), lado);

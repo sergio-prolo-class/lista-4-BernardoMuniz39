@@ -17,7 +17,7 @@ public class Circulo extends ObjetoDeDesenho{
             canva.draw.setPenColor(Color.BLACK);
             canva.draw.filledCircle(getX(), getY(), raio);
             canva.draw.setPenColor(this.getCor());
-            canva.draw.filledCircle(getX(), getY(), raio * 0.90);
+            canva.draw.filledCircle(getX(), getY(), raio * 0.96);
         }else{
             canva.draw.setPenColor(this.getCor());
             canva.draw.circle(getX(), getY(), raio);

@@ -6,7 +6,6 @@ import java.util.List;
 
 import edu.princeton.cs.algs4.DrawListener;
 import ifsc.poo.figuras.Circulo;
-import ifsc.poo.figuras.FiguraGeometrica;
 import ifsc.poo.figuras.Hexagono;
 import ifsc.poo.figuras.Pentagono;
 import ifsc.poo.figuras.Quadrado;
@@ -15,7 +14,7 @@ import ifsc.poo.figuras.Quadrado;
 public class Desenhista implements DrawListener{
 
     private Canvas canva;
-    private Color[] colors = {Color.RED, Color.GREEN, Color.BLUE, Color.YELLOW};
+    private Color[] colors = {Color.BLACK,  Color.RED, Color.GREEN, Color.BLUE};
 
     private int tamanhoinicial = 50, indexCor = 0, tamanhoMin = 10, tamanhoMax = 200;
     private String tipoDeFigura;
@@ -31,10 +30,15 @@ public class Desenhista implements DrawListener{
         c.draw.addListener(this);
     }
     
-
+    //Aqui eu utilizei polimorfismo, pois o mesmo objeto de desenho pode ser diferentes tipos de figuras geométricas
     public void mousePressed(double x, double y) {
+
+        if(tipoDeFigura == null){
+            System.out.println("Tipo de figura inválido! Por favor, selecione uma figura.");
+            return;
+        }
+
         ObjetoDeDesenho figura = null;
-        FiguraGeometrica g = null;
 
         switch(tipoDeFigura){
             case "CIRCULO": 
@@ -50,9 +54,7 @@ public class Desenhista implements DrawListener{
                 figura = new Pentagono(tamanhoinicial, x, y, colors[indexCor], preenchido);
                 break;
         }
-
         if(figura != null){
-        
             figuras.add(figura);
             figura.desenhar(canva);
         }
@@ -117,12 +119,35 @@ public class Desenhista implements DrawListener{
                 figuras.clear();
                 canva.limparTela();
                 break;
-            default:
-                System.out.println("Tecla inválida!");
             case 80: //P - VER ESTATÍSTICAS
                 System.out.println(e.verEstatisticas(figuras));
                 break;
-                
+            case 38: //UP - SETA PARA CIMA
+                mover(0,20);
+                System.out.println("tecla pra cima pressionada");
+                break;
+            case 40: //DOWN - SETA PARA BAIXO
+                mover(0,-20);
+                break;
+            case 37: //LEFT - SETA PARA A ESQUERDA
+                mover(-20,0);
+                break;
+            case 39: //RIGHT - SETA PARA A DIREITA
+                mover(20,0);
+                break;
+            default:
+                System.out.println("Tecla inválida!");
+        }
+    }
+
+    public void mover(double x, double y){
+        for( ObjetoDeDesenho figura: figuras){
+            figura.setX(figura.getX() + x);
+            figura.setY(figura.getY() + y);
+        }
+        canva.limparTela();
+        for( ObjetoDeDesenho figura: figuras){
+            figura.desenhar(canva);
         }
     }
 

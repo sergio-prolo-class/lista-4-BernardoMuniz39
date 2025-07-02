@@ -27,8 +27,8 @@ public class Hexagono extends ObjetoDeDesenho{
             canva.draw.filledPolygon(x, y);
 
             for(int i = 0; i < 6; i++){
-                x[i] = getX() + (lado*0.90) * Math.cos(2 * Math.PI * i / 6);
-                y[i] = getY() + (lado*0.90) * Math.sin(2 * Math.PI * i / 6);
+                x[i] = getX() + (lado*0.96) * Math.cos(2 * Math.PI * i / 6);
+                y[i] = getY() + (lado*0.96) * Math.sin(2 * Math.PI * i / 6);
             }
 
             canva.draw.setPenColor(this.getCor());

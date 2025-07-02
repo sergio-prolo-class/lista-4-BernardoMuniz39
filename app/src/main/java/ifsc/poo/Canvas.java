@@ -5,7 +5,7 @@ public class Canvas {
     public Draw draw;
 
     public void desenharTela(){
-           this.draw = new Draw();
+        this.draw = new Draw();
         this.draw.setDefaultCloseOperation(javax.swing.JFrame.EXIT_ON_CLOSE);
         this.draw.setCanvasSize(1000, 1000);
         this.draw.setXscale(0,800);
