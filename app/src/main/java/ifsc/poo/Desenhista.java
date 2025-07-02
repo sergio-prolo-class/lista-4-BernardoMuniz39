@@ -14,9 +14,9 @@ import ifsc.poo.figuras.Quadrado;
 public class Desenhista implements DrawListener{
 
     private Canvas canva;
-    private Color[] colors = {Color.BLACK,  Color.RED, Color.GREEN, Color.BLUE};
+    private Color[] colors = {Color.BLACK,  Color.RED, Color.BLUE, Color.GREEN,};
 
-    private int tamanhoinicial = 50, indexCor = 0, tamanhoMin = 10, tamanhoMax = 200;
+    private int tamanhoinicial = 50, indexCor = 0, tamanhoMin = 10, tamanhoMax = 300;
     private String tipoDeFigura;
 
     
@@ -84,7 +84,7 @@ public class Desenhista implements DrawListener{
                 break;
             case 117: //F6
                 indexCor = 1;
-                System.out.println("Cor: Verde");
+                System.out.println("Cor: Vermelho");
                 break;
             case 118: //F7
                 indexCor = 2;
@@ -92,7 +92,7 @@ public class Desenhista implements DrawListener{
                 break;
             case 119: //F8
                 indexCor = 3;
-                System.out.println("Cor: Amarelo");
+                System.out.println("Cor: Verde");
                 break;
             case 70: //F
                 preenchido = !preenchido;
