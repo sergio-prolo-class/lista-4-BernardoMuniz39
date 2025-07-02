@@ -80,7 +80,7 @@ public class Desenhista implements DrawListener{
                 break;
             case 116: //F5
                 indexCor = 0;
-                System.out.println("Cor: Vermelho");
+                System.out.println("Cor: Preto");
                 break;
             case 117: //F6
                 indexCor = 1;
@@ -124,7 +124,6 @@ public class Desenhista implements DrawListener{
                 break;
             case 38: //UP - SETA PARA CIMA
                 mover(0,20);
-                System.out.println("tecla pra cima pressionada");
                 break;
             case 40: //DOWN - SETA PARA BAIXO
                 mover(0,-20);
