@@ -33,8 +33,8 @@ import ifsc.poo.figuras.Quadrado;
 public class Desenhista implements DrawListener{
 
     private Canvas canva;
-    private String tipoDeFigura;
-    private int tamanhoInicial = 50, indexCor = 0, indexFigura = 0;
+
+    private int tamanhoInicial = 50, indexCor = 0, indexFigura = -1;
     
     private List<ObjetoDeDesenho> figuras = new LinkedList<>();
     private boolean preenchido = false;
@@ -49,7 +49,7 @@ public class Desenhista implements DrawListener{
     //Aqui eu utilizei polimorfismo, pois o mesmo objeto de desenho pode ser diferentes tipos de figuras geométricas
     public void mousePressed(double x, double y) {
 
-        if(tipoDeFigura == null){
+        if(indexFigura == -1){
             System.out.println("Tipo de figura inválido! Por favor, selecione uma figura.");
             return;
         }
@@ -76,17 +76,16 @@ public class Desenhista implements DrawListener{
         }
     }
 
+    @Override
     public void keyPressed(int tecla){
         switch(tecla){
             case F1_KEY: //F1
                 System.out.println("Figura: Círculo");
                 indexFigura = 0;
-                tipoDeFigura = "CIRCULO";
                 break;
             case F2_KEY: //F2
                 System.out.println("Figura: Quadrado");
                 indexFigura = 1;
-                tipoDeFigura = "QUADRADO";
                 break;
             case F3_KEY: //F3
                 System.out.println("Figura: Pentágono");

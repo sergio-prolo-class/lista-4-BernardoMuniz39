@@ -18,7 +18,84 @@ Para utilizar o projeto, certifique-se de estar dentro da pasta clonada e com o 
 O esquema abaixo representa o diagrama UML do projeto:
 
 ```mermaid
+%%{init: {'flowchart': {'nodeSpacing': 100, 'rankSpacing': 100}}}%%
 
+classDiagram
+        direction LR
+        class App{
+           
+        }
+         class Canvas{
+          +draw : Draw
+          +desenharTela()void
+          +limparTela()void
+        }
+        class Constantes{
+          +CORES_FIGURAS: String []
+          +FIGURAS_GEOMETRICAS: String []
+          +TAMANHO_MIN: int
+          +TAMANHO_MAX: int
+        }
+        class Desenhista{
+          - canva : Canvas
+          - tamanhoInicial : int
+          - figuras: ~List~
+          - preenchido : boolean
+          - e : Estatistica
+          +mousePressed(x : double, y : double)void
+          +keyPressed(tecla: int)void
+          +moverFiguras(x : double, y: double)void
+        }
+        class Estatistica{
+          +verEstatisticas(l: ListObjetoDeDesenho~)void
+        }
+        class Hexagono {
+          -lado: double
+        }
+        class Circulo{
+          -raio: double
+        }
+        class Pentagono{
+          -lado: double
+        }
+        class Quadrado{
+          -lado: double
+      
+        }
+        class Ponto{
+          -x:double
+          -y:double
+          +setX(x: double)void
+          +setY(y: double)void
+          +getX()void
+          +getY()void
+        }
+        class FiguraGeometrica
+        <<interface>> FiguraGeometrica
+        FiguraGeometrica: calcularArea()
+        FiguraGeometrica: calcularPerimetrp()
+        class ObjetoDeDesenho{
+          <<Abstract>>
+          #ponto: Ponto
+          #cor: Color
+          #preenchido: boolean
+          +desenhar(canvas: Canvas)void
+          +getPonto()Ponto
+          +seMover(x : double, y: double)void
+        }
+        Quadrado --|> ObjetoDeDesenho
+        Hexagono --|> ObjetoDeDesenho
+        Pentagono --|> ObjetoDeDesenho
+        Circulo --|> ObjetoDeDesenho
+        ObjetoDeDesenho --|> FiguraGeometrica
+        Ponto --* ObjetoDeDesenho
+        Desenhista --* Canvas
+        Constantes --* Desenhista
+        Constantes --* Canvas
+        ObjetoDeDesenho "1..*" --o Desenhista
+        Estatistica --o Desenhista
+        App ..|> Desenhista
+        App ..|> Canvas
 ```
 
 ## Aplicativo de desenho vetorial
