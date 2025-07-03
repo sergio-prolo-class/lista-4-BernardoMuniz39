@@ -42,4 +42,9 @@ public abstract class ObjetoDeDesenho implements FiguraGeometrica {
         return preenchido;
     }
 
+    public void seMover(double x, double y){
+        this.setX(this.getX() + x);
+        this.setY(this.getY() + y);
+    }
+
 }

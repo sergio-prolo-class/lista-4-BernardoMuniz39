@@ -1,14 +1,15 @@
 package ifsc.poo;
 import edu.princeton.cs.algs4.Draw;
+import static ifsc.poo.Constantes.*;
 
 public class Canvas {
     public Draw draw;
 
     public Canvas() {
         this.draw = new Draw();
-        this.draw.setCanvasSize(500, 500);
-        this.draw.setXscale(0,800);
-        this.draw.setYscale(0,800);
+        this.draw.setCanvasSize(CANVAS_WIDTH, CANVAS_HEIGHT);
+        this.draw.setXscale(0,X_SCALE);
+        this.draw.setYscale(0,Y_SCALE);
         draw.enableDoubleBuffering();
     }
 
