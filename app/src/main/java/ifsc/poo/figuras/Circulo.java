@@ -1,26 +1,31 @@
 package ifsc.poo.figuras;
+import java.awt.Color;
+
 import ifsc.poo.Canvas;
 import ifsc.poo.ObjetoDeDesenho;
-import java.awt.Color;
+import ifsc.poo.Ponto;
 
 public class Circulo extends ObjetoDeDesenho{
     private double raio;
     
-    public Circulo(double raio, double x, double y, Color cor, boolean preenchido){
-        super(x, y, cor, preenchido);
+    public Circulo(double raio, Ponto ponto, Color cor, boolean preenchido){
+        super(ponto, cor, preenchido);
         this.raio = raio;
     } 
     
     @Override
     public void desenhar(Canvas canva){
+        double x = this.getPonto().getX();
+        double y = this.getPonto().getY();
+
         if(this.ehPreenchido()){
             canva.draw.setPenColor(Color.BLACK);
-            canva.draw.filledCircle(getX(), getY(), raio);
+            canva.draw.filledCircle(x, y, raio);
             canva.draw.setPenColor(this.getCor());
-            canva.draw.filledCircle(getX(), getY(), raio * 0.96);
+            canva.draw.filledCircle(x, y, raio * 0.96);
         }else{
             canva.draw.setPenColor(this.getCor());
-            canva.draw.circle(getX(), getY(), raio);
+            canva.draw.circle(x, y, raio);
         }
         canva.draw.show();
     }

@@ -58,16 +58,16 @@ public class Desenhista implements DrawListener{
 
         switch(indexFigura){
             case 0 : 
-                figura = new Circulo(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido); 
+                figura = new Circulo(tamanhoInicial, new Ponto(x, y), CORES_FIGURAS[indexCor], preenchido); 
                 break;
             case 1: 
-                figura = new Quadrado(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido);
+                figura = new Quadrado(tamanhoInicial, new Ponto(x, y), CORES_FIGURAS[indexCor], preenchido);
                 break;
             case 2: 
-                figura = new Pentagono(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido);
+                figura = new Pentagono(tamanhoInicial, new Ponto(x, y), CORES_FIGURAS[indexCor], preenchido);
                 break;
             case 3: 
-                figura = new Hexagono(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido);
+                figura = new Hexagono(tamanhoInicial, new Ponto(x, y), CORES_FIGURAS[indexCor], preenchido);
                 break;
         }
         if(figura != null){

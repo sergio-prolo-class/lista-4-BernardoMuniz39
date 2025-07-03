@@ -24,7 +24,7 @@ O esquema abaixo representa o diagrama UML do projeto:
 ## Aplicativo de desenho vetorial
 O resumo abaixo disponibiliza um manual que contém as funcionalidades técnicas implementadas no projeto. Nele contém as teclas que devem ser pressionadas no teclado para que seja visualizado os desenhos vetoriais.
 #### Funcionalidades técnicas
-- **F1 - F4:** Alterna entre as figuras círculo, quadrado, hexágono e pentágono.
+- **F1 - F4:** Alterna entre as figuras círculo, quadrado, pentágono e hexágono.
 - **F5 - F8:** Alterna as cores entre preto, vermelho, azul e verde.
 - **Q:** Aumenta a figura de tamanho.
 - **W:** Diminui a figura de tamanho

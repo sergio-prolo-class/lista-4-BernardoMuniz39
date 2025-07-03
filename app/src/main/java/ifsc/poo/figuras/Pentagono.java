@@ -1,14 +1,16 @@
 package ifsc.poo.figuras;
 
+import java.awt.Color;
+
 import ifsc.poo.Canvas;
 import ifsc.poo.ObjetoDeDesenho;
-import java.awt.Color;
+import ifsc.poo.Ponto;
 
 public class Pentagono extends ObjetoDeDesenho{
     private double lado;
 
-    public Pentagono(double lado, double x, double y, Color cor, boolean preenchido){
-        super(x, y, cor, preenchido);
+    public Pentagono(double lado, Ponto ponto, Color cor, boolean preenchido){
+          super(ponto, cor, preenchido);
         this.lado = lado;
     }
         
@@ -18,8 +20,8 @@ public class Pentagono extends ObjetoDeDesenho{
         double[] y = new double[5];
 
         for(int i = 0; i < 5; i++){
-            x[i] = getX() + lado * Math.cos(2 * Math.PI * i / 5);
-            y[i] = getY() + lado * Math.sin(2 * Math.PI * i / 5);
+            x[i] = getPonto().getX() + lado * Math.cos(2 * Math.PI * i / 5);
+            y[i] = getPonto().getY() + lado * Math.sin(2 * Math.PI * i / 5);
         }
 
         if(this.ehPreenchido()){
@@ -27,8 +29,8 @@ public class Pentagono extends ObjetoDeDesenho{
             canva.draw.filledPolygon(x, y);
 
             for(int i = 0; i < 5; i++){
-                x[i] = getX() + (lado*0.96) * Math.cos(2 * Math.PI * i / 5);
-                y[i] = getY() + (lado*0.96) * Math.sin(2 * Math.PI * i / 5);
+                x[i] = getPonto().getX() + (lado*0.96) * Math.cos(2 * Math.PI * i / 5);
+                y[i] = getPonto().getY() + (lado*0.96) * Math.sin(2 * Math.PI * i / 5);
             }
 
             canva.draw.setPenColor(this.getCor());

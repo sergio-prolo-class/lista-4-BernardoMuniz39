@@ -3,25 +3,28 @@ import java.awt.Color;
 
 import ifsc.poo.Canvas;
 import ifsc.poo.ObjetoDeDesenho;
+import ifsc.poo.Ponto;
 
 public class Quadrado extends ObjetoDeDesenho{
     private double lado;
 
-    public Quadrado(double lado, double x, double y, Color cor, boolean preenchido){
-        super(x, y, cor, preenchido);
+    public Quadrado(double lado,Ponto ponto, Color cor, boolean preenchido){
+        super(ponto, cor, preenchido);
         this.lado = lado;
     }
 
     @Override
     public void desenhar(Canvas canva){
+        double x = getPonto().getX();
+        double y = getPonto().getY();
         if(this.ehPreenchido()){
             canva.draw.setPenColor(Color.BLACK);
-            canva.draw.filledSquare(getX(), getY(), lado);
+            canva.draw.filledSquare(x, y, lado);
             canva.draw.setPenColor(this.getCor());
-            canva.draw.filledSquare(getX(), getY(), lado * 0.96);
+            canva.draw.filledSquare(x, y, lado * 0.96);
         }else{
             canva.draw.setPenColor(this.getCor());
-            canva.draw.square(getX(), getY(), lado);
+            canva.draw.square(x, y, lado);
         }
         canva.draw.show();
     }
