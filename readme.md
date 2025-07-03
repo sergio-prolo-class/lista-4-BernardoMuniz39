@@ -24,10 +24,10 @@ O esquema abaixo representa o diagrama UML do projeto:
 ## Aplicativo de desenho vetorial
 O resumo abaixo disponibiliza um manual que contém as funcionalidades técnicas implementadas no projeto. Nele contém as teclas que devem ser pressionadas no teclado para que seja visualizado os desenhos vetoriais.
 #### Funcionalidades técnicas
-- F1 - F4: Alterna entre as figuras círculo, quadrado, hexágono e pentágono.
-- F5 - F8: Alterna as cores entre preto, vermelho, azul e verde.
-- Q: Aumenta a figura de tamanho.
-- W: Diminui a figura de tamanho
-- F: Permite alternar entre uma figura com preenchimento e sem preenchimento. Caso for com preenchimento, a figura será impressa com a cor atualmente selecionada e com a borda preta. Se não, será impressa uma figura vazada com a cor da borda sendo a atualmente selecionada.
-- P: Permite ver estatísticas contendo o total de figuras impressas, a média das áreas e a soma dos perímetros.
-- UP, DOWN, LEFT, RIGHT: Permite mover todas as figuras nas quatro direções cardinais utilizando as setas do teclado.
+- **F1 - F4:** Alterna entre as figuras círculo, quadrado, hexágono e pentágono.
+- **F5 - F8:** Alterna as cores entre preto, vermelho, azul e verde.
+- **Q:** Aumenta a figura de tamanho.
+- **W:** Diminui a figura de tamanho
+- **F:** Permite alternar entre uma figura com preenchimento e sem preenchimento. Caso for com preenchimento, a figura será impressa com a cor atualmente selecionada e com a borda preta. Se não, será impressa uma figura vazada com a cor da borda sendo a atualmente selecionada.
+- **P:** Permite ver estatísticas contendo o total de figuras impressas, a média das áreas e a soma dos perímetros.
+- **UP, DOWN, LEFT, RIGHT:** Permite mover todas as figuras nas quatro direções cardinais utilizando as setas do teclado.

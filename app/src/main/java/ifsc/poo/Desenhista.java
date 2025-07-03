@@ -1,22 +1,40 @@
 package ifsc.poo;
 
-import java.awt.Color;
 import java.util.LinkedList;
 import java.util.List;
 
 import edu.princeton.cs.algs4.DrawListener;
+import static ifsc.poo.Constantes.CORES_FIGURAS;
+import static ifsc.poo.Constantes.C_KEY;
+import static ifsc.poo.Constantes.DOWN_KEY;
+import static ifsc.poo.Constantes.F1_KEY;
+import static ifsc.poo.Constantes.F2_KEY;
+import static ifsc.poo.Constantes.F3_KEY;
+import static ifsc.poo.Constantes.F4_KEY;
+import static ifsc.poo.Constantes.F5_KEY;
+import static ifsc.poo.Constantes.F6_KEY;
+import static ifsc.poo.Constantes.F7_KEY;
+import static ifsc.poo.Constantes.F8_KEY;
+import static ifsc.poo.Constantes.F_KEY;
+import static ifsc.poo.Constantes.LEFT_KEY;
+import static ifsc.poo.Constantes.P_KEY;
+import static ifsc.poo.Constantes.Q_KEY;
+import static ifsc.poo.Constantes.RIGHT_KEY;
+import static ifsc.poo.Constantes.TAMANHO_MAX;
+import static ifsc.poo.Constantes.TAMANHO_MIN;
+import static ifsc.poo.Constantes.UP_KEY;
+import static ifsc.poo.Constantes.W_KEY;
 import ifsc.poo.figuras.Circulo;
 import ifsc.poo.figuras.Hexagono;
 import ifsc.poo.figuras.Pentagono;
 import ifsc.poo.figuras.Quadrado;
-import static ifsc.poo.Constantes.*;
 
 
 public class Desenhista implements DrawListener{
 
     private Canvas canva;
     private String tipoDeFigura;
-    private int tamanhoInicial = 50, indexCor = 0;
+    private int tamanhoInicial = 50, indexCor = 0, indexFigura = 0;
     
     private List<ObjetoDeDesenho> figuras = new LinkedList<>();
     private boolean preenchido = false;
@@ -38,18 +56,18 @@ public class Desenhista implements DrawListener{
 
         ObjetoDeDesenho figura = null;
 
-        switch(tipoDeFigura){
-            case "CIRCULO": 
+        switch(indexFigura){
+            case 0 : 
                 figura = new Circulo(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido); 
                 break;
-            case "QUADRADO": 
+            case 1: 
                 figura = new Quadrado(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido);
                 break;
-            case "HEXÁGONO": 
-                figura = new Hexagono(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido);
-                break;
-            case "PENTÁGONO": 
+            case 2: 
                 figura = new Pentagono(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido);
+                break;
+            case 3: 
+                figura = new Hexagono(tamanhoInicial, x, y, CORES_FIGURAS[indexCor], preenchido);
                 break;
         }
         if(figura != null){
@@ -62,19 +80,21 @@ public class Desenhista implements DrawListener{
         switch(tecla){
             case F1_KEY: //F1
                 System.out.println("Figura: Círculo");
+                indexFigura = 0;
                 tipoDeFigura = "CIRCULO";
                 break;
             case F2_KEY: //F2
                 System.out.println("Figura: Quadrado");
+                indexFigura = 1;
                 tipoDeFigura = "QUADRADO";
                 break;
             case F3_KEY: //F3
-                System.out.println("Figura: Hexágono");
-                tipoDeFigura = "HEXÁGONO";
+                System.out.println("Figura: Pentágono");
+                indexFigura = 2;
                 break;
             case F4_KEY: //F4
-                System.out.println("Figura: Pentágono");
-                tipoDeFigura = "PENTÁGONO";
+                System.out.println("Figura: Hexágono");
+                indexFigura = 3;
                 break;
             case F5_KEY: //F5
                 indexCor = 0;
