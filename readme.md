@@ -74,6 +74,11 @@ classDiagram
         <<interface>> FiguraGeometrica
         FiguraGeometrica: calcularArea()
         FiguraGeometrica: calcularPerimetrp()
+
+        class DrawnListener
+        <<interface>> DrawnListener
+        DrawnListener: keyPressed()
+        DrawnListener: mousePressed()
         class ObjetoDeDesenho{
           <<Abstract>>
           #ponto: Ponto
@@ -83,6 +88,8 @@ classDiagram
           +getPonto()Ponto
           +seMover(x : double, y: double)void
         }
+       
+
         Quadrado --|> ObjetoDeDesenho
         Hexagono --|> ObjetoDeDesenho
         Pentagono --|> ObjetoDeDesenho
@@ -96,6 +103,8 @@ classDiagram
         Estatistica --o Desenhista
         App ..|> Desenhista
         App ..|> Canvas
+        DrawnListener --|> Desenhista
+
 ```
 
 ## Aplicativo de desenho vetorial
